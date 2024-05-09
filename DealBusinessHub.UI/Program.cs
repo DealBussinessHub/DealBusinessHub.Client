@@ -1,11 +1,17 @@
 using DealBusinessHub.UI.Components;
+using DealBusinessHub.UI.Repositories;
+using DealBusinessHub.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
+builder.Services.AddScoped<IGlobalService, GlobalService>();
+
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -5,7 +5,7 @@
       "anonymousAuthentication": true,
       "iisExpress": {
         "applicationUrl": "http://*:3838",
-        "launchUrl": "auth/login",
+         "launchUrl": "auth/login",
         "sslPort": 44328
       }
     },

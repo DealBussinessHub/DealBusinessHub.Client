@@ -1,12 +1,12 @@
-﻿@page "/auth/login"
+﻿@page "/auth/account-status-verify"
 @layout AuthLayout
-@inject IGlobalService GlobalService
 
+@inject IGlobalService GlobalService
 
 
 <style>
 
-    *{
+    * {
         font-size: 1.2rem;
     }
 
@@ -65,7 +65,7 @@
     </div>
     <button type="submit" class="btn btn-primary signin">Login</button>
 
-    <div class=" d-flex justify-content-between align-items-center gap-4" >
+    <div class=" d-flex justify-content-between align-items-center gap-4">
         <div class="line"></div>
         <span style="font-size:.8rem !important">Or</span>
         <div class="line"></div>
@@ -79,22 +79,16 @@
 
     <p style="font-size:.8rem !important" class="text-decoration-none">
         Don't have an account?
-        <NavLink href="/auth/signup" class="text-decoration-none text-dark fw-bold" style="font-size:.8rem !important">Register</NavLink>
-        </p>
+        <NavLink href="/auth/register" class="text-decoration-none text-dark fw-bold" style="font-size:.8rem !important">Register</NavLink>
+    </p>
 
 </form>
 
 @code {
-    protected override void OnParametersSet()
-    {
-        GlobalService.AuthPageTitle = "Explore Unlimited Opportunities";
-        GlobalService.AuthPageDescription = "Discover a wide range of business opportunities all in one place. Connect with qualified buyers, investors, sellers, and consultants to achieve your business goals.";
-    }
 
     protected override void OnInitialized()
     {
-        GlobalService.AuthPageTitle = "Explore Unlimited Opportunities";
-        GlobalService.AuthPageDescription = "Discover a wide range of business opportunities all in one place. Connect with qualified buyers, investors, sellers, and consultants to achieve your business goals.";
+        GlobalService.SetAuthLayout("Explore Unlimited Opportunities", "Discover a wide range of business opportunities all in one place. Connect with qualified buyers, investors, sellers, and consultants to achieve your business goals.");
     }
 
 }

@@ -1,12 +1,12 @@
-﻿@page "/auth/login"
+﻿@page "/auth/signup"
 @layout AuthLayout
-@inject IGlobalService GlobalService
 
+@inject IGlobalService GlobalService
 
 
 <style>
 
-    *{
+    * {
         font-size: 1.2rem;
     }
 
@@ -18,7 +18,7 @@
             width: 100%;
         }
 
-        form .form-control {
+        form .form-control, form .form-select {
             box-sizing: border-box;
             padding: 10px;
             outline: none !important;
@@ -26,7 +26,7 @@
             background-color: @ColorThemeEnum.GreyTertiary !important;
         }
 
-            form .form-control:focus {
+            form .form-control:focus, form .form-select:focus{
                 border-color: @ColorThemeEnum.RedPrimary !important;
             }
 
@@ -56,16 +56,28 @@
 </style>
 
 <form class="d-flex flex-column align-items-center gap-4 gap-lg-3 p-3 px-3 px-lg-5 pb-0">
-    <span class="h5 mb-3 fw-bold text-center w-75">Login to your account</span>
+    <span class="h5 mb-3 fw-bold text-center w-75">Sign up to you account</span>
+    <div class="form-group">
+        <input type="text" class="form-control" id="email" placeholder="Fullname" />
+    </div>
     <div class="form-group">
         <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" />
     </div>
     <div class="form-group">
+        <input type="tel" class="form-control" id="email" placeholder="Phone Number" />
+    </div>
+    <div class="form-group">
         <input type="password" class="form-control" id="password" placeholder="************" />
     </div>
-    <button type="submit" class="btn btn-primary signin">Login</button>
+    <div class="form-group">
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select your buyer type</option>
+        </select>
+    </div>
 
-    <div class=" d-flex justify-content-between align-items-center gap-4" >
+    <button type="submit" class="btn btn-primary signin">Create Account</button>
+
+    <div class=" d-flex justify-content-between align-items-center gap-4">
         <div class="line"></div>
         <span style="font-size:.8rem !important">Or</span>
         <div class="line"></div>
@@ -74,27 +86,29 @@
 
     <button style="font-size:.8rem !important" class="btn d-flex align-items-center justify-content-center w-100 gap-5 border rounded rounded-fill  fw-bold">
         <img src="../assets/img/google.png" style="aspect-ratio:1/1; width:8%;" />
-        Sign in with Google
+        Sign Up with Google
     </button>
 
     <p style="font-size:.8rem !important" class="text-decoration-none">
-        Don't have an account?
-        <NavLink href="/auth/signup" class="text-decoration-none text-dark fw-bold" style="font-size:.8rem !important">Register</NavLink>
-        </p>
+        Already have an account?
+        <NavLink href="/auth/login" class="text-decoration-none text-dark fw-bold" style="font-size:.8rem !important">Sign In</NavLink>
+    </p>
 
 </form>
 
 @code {
+
     protected override void OnParametersSet()
     {
-        GlobalService.AuthPageTitle = "Explore Unlimited Opportunities";
-        GlobalService.AuthPageDescription = "Discover a wide range of business opportunities all in one place. Connect with qualified buyers, investors, sellers, and consultants to achieve your business goals.";
+        GlobalService.AuthPageTitle = "Connect Directly with Business Partners";
+        GlobalService.AuthPageDescription = "Conduct business quickly and efficiently by connecting directly with trusted buyers, investors and sellers. Find the perfect opportunity for your next venture.";
     }
 
     protected override void OnInitialized()
     {
-        GlobalService.AuthPageTitle = "Explore Unlimited Opportunities";
-        GlobalService.AuthPageDescription = "Discover a wide range of business opportunities all in one place. Connect with qualified buyers, investors, sellers, and consultants to achieve your business goals.";
+        GlobalService.AuthPageTitle = "Connect Directly with Business Partners";
+        GlobalService.AuthPageDescription = "Conduct business quickly and efficiently by connecting directly with trusted buyers, investors and sellers. Find the perfect opportunity for your next venture.";
     }
 
 }
+

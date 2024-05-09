@@ -1,7 +1,7 @@
-*{
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
@@ -19,7 +19,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -56,15 +56,21 @@ h1:focus {
     border-color: #929292;
 }
 
-@media only screen and (min-width : 1224px) {
-    .main-content{
-        height: 0px !important;
+
+
+
+
+  
+
+@media only screen and (min-width : 780px) {
+    .content-page {
+        max-height: 80vh !important;
+        overflow-y: auto;
     }
 }
 
 /* typical phone screen resolution */
 @media only screen and (max-width : 667px) {
-
 }
 /* landscape orientation */
 @media only screen and (min-width : 375px) and (max-width : 667px) and (orientation : landscape) {
