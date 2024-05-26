@@ -1,0 +1,11 @@
+﻿@page "/"
+@inject NavigationManager naviationManager
+
+<h3>Index</h3>
+
+@code{
+        protected override void OnInitialized()
+    {
+        naviationManager.NavigateTo("/auth/login");
+    }
+}

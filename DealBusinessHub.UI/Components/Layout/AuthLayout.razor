@@ -1,10 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @inject IGlobalService GlobalService
 
-
-
-
-
 <style>
     .content-page::-webkit-scrollbar {
         width: 10px;
@@ -28,27 +24,6 @@
 </style>
 
 <main class="row main-content p-0 m-0 " style="height:100vh">
-    <aside class="col-4 p-4 d-none d-lg-flex flex-column justify-content-center" style="background-image: url('../assets/img/AuthBackImage.png');">
-        
-        <div style="color:@ColorThemeEnum.WhitePrimary;" class="d-flex flex-column gap-4">
-            <AuthPageTitle Title="@GlobalService.AuthPageTitle"/>
-            <AuthPageDescription Description="@GlobalService.AuthPageDescription"/>
-            
-            <img src="../assets/img/paginationlogo.png" class="w-25"/>
-       </div>
-
-    </aside>
-    <aside class="col d-grid gap-3 p-2 px-3 px-lg-0" style="background-color:@ColorThemeEnum.WhiteSecondary; align-content:center; place-items:center">
-        <header>
-            <img src="../assets/img/dealbusinesshublogo.png" />
-        </header>
-        <section class="rounded rounded-5 col-12 col-md-7 shadow shadow-sm content-page" style="background-color:@ColorThemeEnum.WhitePrimary;">
-            @Body
-        </section>
-    </aside>
+    @Body
 </main>
 
-@code {
-
- 
-}
