@@ -1,0 +1,146 @@
+﻿@page "/auth/choose-account-plan"
+@layout AuthLayout
+@inject IGlobalService GlobalService
+
+<PageTitle>DealBusinessHub - Choose Your Plan</PageTitle>
+<style>
+
+    * {
+        font-size: 1.2rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+        form .form-group {
+            width: 100%;
+        }
+
+        form .form-control {
+            box-sizing: border-box;
+            padding: 10px;
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: @ColorThemeEnum.GreyTertiary !important;
+        }
+
+            form .form-control:focus {
+                border-color: @ColorThemeEnum.RedPrimary !important;
+            }
+
+        form .signin {
+            width: 100%;
+            background-color: @ColorThemeEnum.RedPrimary !important;
+            border-color: @ColorThemeEnum.RedPrimary !important;
+            outline: none !important;
+            box-shadow: none !important;
+            transition: all 0.3s ease;
+        }
+
+            form .signin:hover {
+                transform: scale(1.05);
+            }
+
+            form .signin:active {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+    .line {
+        background-color: @ColorThemeEnum.GreyTertiary !important;
+        width: 5rem !important;
+        height: 1px !important;
+    }
+</style>
+
+<aside class="col-4 p-4 d-none d-lg-flex flex-column justify-content-center" style="background-image: url('../assets/img/AuthBackImage.png');">
+
+    <div style="color:@ColorThemeEnum.WhitePrimary;" class="d-flex flex-column gap-4">
+        <AuthPageTitle Title="@GlobalService.AuthPageTitle" />
+        <AuthPageDescription Description="@GlobalService.AuthPageDescription" />
+
+        <img src="../assets/img/paginationlogo.png" class="w-25" />
+    </div>
+
+</aside>
+<aside class="col d-grid gap-3 p-2 px-3 px-lg-0" style="background-color:@ColorThemeEnum.WhiteSecondary; align-content:center; place-items:center">
+    <header>
+        <img src="../assets/img/dealbusinesshublogo.png" />
+    </header>
+    <section class="rounded rounded-5 col-12 col-md-10 shadow shadow-sm" style="background-color:@ColorThemeEnum.WhitePrimary;">
+        <div class="d-flex flex-column align-items-center gap-4 gap-lg-3 p-3 px-3 px-lg-5 ">
+            <span class="h5 fw-bold text-center w-75">Choose your plan</span>
+        </div>
+    </section>
+    <div class="row justify-content-between gap-3 align-items-center col-10">
+        <button class="col btn rounded rounded-pill text-white" style="background-color:@ColorThemeEnum.RedPrimary">
+            Free
+        </button>
+        <button class="col btn rounded rounded-pill " style="background-color:@ColorThemeEnum.WhitePrimary">
+            Starter Business
+        </button>
+        <button class="col btn rounded rounded-pill " style="background-color:@ColorThemeEnum.WhitePrimary">
+            Gold / Fast Business
+        </button>
+    </div>
+    <section class="rounded rounded-5 col-12 col-md-10 shadow shadow-sm pt-4 pb-0" style="background-color:@ColorThemeEnum.WhitePrimary;">
+
+
+        <!--Add a list with 6 lines content correct icon and text-->
+
+        <div class="d-flex flex-column gap-3 mt-2 px-4 pb-4">
+            <span class="" style="font-size:0.8rem">This package include free and basics features:</span>
+            <li class=" d-flex align-items-center gap-3" style="font-size:0.8rem">
+                <i class="fas fa-check-circle text-danger"></i> Easy of your advertisement
+            </li>
+            <li class=" d-flex align-items-center gap-3" style="font-size:0.8rem">
+                <i class="fas fa-check-circle text-danger"></i> Standard reach
+            </li>
+            <li class=" d-flex align-items-center gap-3" style="font-size:0.8rem">
+                <i class="fas fa-check-circle text-danger"></i> 1 photo and no video
+            </li>
+            <li class=" d-flex align-items-center gap-3" style="font-size:0.8rem">
+                <i class="fas fa-check-circle text-danger"></i> Viewing of online statistics and leads
+            </li>
+            <li class=" d-flex align-items-center gap-3" style="font-size:0.8rem">
+                <i class="fas fa-check-circle text-danger"></i> Management back office
+            </li>
+            <li class=" d-flex align-items-center gap-3" style="font-size:0.8rem">
+                <i class="fas fa-check-circle text-danger"></i> Standard support
+            </li>
+        </div>
+
+        <div class="p-4 d-flex justify-content-between align-items-center" style="background: @ColorThemeEnum.GreyTertiary">
+            <div class="d-flex flex-column">
+                <span class="h5 fw-bold">Basic</span>
+                <span class="">
+                    <span class="h5 fw-bold ">0$</span>
+                    <span>/month + Tax</span>
+                </span>
+            </div>
+
+            <button class="btn rounded rounded-3 text-white" style="background-color:@ColorThemeEnum.RedPrimary">
+                Get Started
+            </button>
+        </div>
+
+    </section>
+</aside>
+
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        GlobalService.AuthPageTitle = "Sell Your Business with Ease";
+        GlobalService.AuthPageDescription = "Detailed listings and expert support are at your fingertips. Sell your business quickly and securely, reaching a global audience of interested buyers and investors.";
+    }
+
+    public bool isActive { get; set; } = false;
+
+    void OnSelectAccount()
+    {
+        isActive = !isActive;
+    }
+}
