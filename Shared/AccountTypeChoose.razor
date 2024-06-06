@@ -1,0 +1,29 @@
+@inject IJSRuntime js
+@inject NavigationManager navigationManager
+
+
+<div class="rounded rounded-3 border border-secondary p-3"
+    style="cursor: pointer;background-color: @(isActive ? @ColorThemeEnum.GreyTertiary : "")"
+    @onclick="OnSelectAccount">
+    <h5 style="color: @ColorThemeEnum.RedPrimary"> @Title</h5>
+    <p style="color: @ColorThemeEnum.GreyPrimary; font-size:0.7rem">@Description</p>
+</div>
+
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "";
+
+    [Parameter]
+    public string Description { get; set; } = "";
+
+    [Parameter]
+    public bool isActive { get; set; } = false;
+
+    void OnSelectAccount()
+    {
+        isActive = !isActive;
+
+        navigationManager.NavigateTo("/auth/choose-account-plan");
+    }
+}

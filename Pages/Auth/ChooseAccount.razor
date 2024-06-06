@@ -1,0 +1,106 @@
+﻿@page "/auth/choose-account"
+@layout AuthLayout
+@inject IGlobalService GlobalService
+
+<PageTitle>DealBusinessHub - Choose your account type</PageTitle>
+
+<style>
+
+    * {
+        font-size: 1.2rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+        form .form-group {
+            width: 100%;
+        }
+
+        form .form-control {
+            box-sizing: border-box;
+            padding: 10px;
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: @ColorThemeEnum.GreyTertiary !important;
+        }
+
+            form .form-control:focus {
+                border-color: @ColorThemeEnum.RedPrimary !important;
+            }
+
+        form .signin {
+            width: 100%;
+            background-color: @ColorThemeEnum.RedPrimary !important;
+            border-color: @ColorThemeEnum.RedPrimary !important;
+            outline: none !important;
+            box-shadow: none !important;
+            transition: all 0.3s ease;
+        }
+
+            form .signin:hover {
+                transform: scale(1.05);
+            }
+
+            form .signin:active {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+    .line {
+        background-color: @ColorThemeEnum.GreyTertiary !important;
+        width: 5rem !important;
+        height: 1px !important;
+    }
+</style>
+
+<aside class="col-4 p-4 d-none d-lg-flex flex-column justify-content-center" style="background-image: url('../assets/img/AuthBackImage.png');">
+
+    <div style="color:@ColorThemeEnum.WhitePrimary;" class="d-flex flex-column gap-4">
+        <AuthPageTitle Title="@GlobalService.AuthPageTitle" />
+        <AuthPageDescription Description="@GlobalService.AuthPageDescription" />
+
+        <img src="../assets/img/paginationlogo.png" class="w-25" />
+    </div>
+
+</aside>
+<aside class="col d-grid gap-3 p-2 px-3 px-lg-0" style="background-color:@ColorThemeEnum.WhiteSecondary; align-content:center; place-items:center">
+    <header>
+        <img src="../assets/img/dealbusinesshublogo.png" />
+    </header>
+    <section class="rounded rounded-5 col-12 col-md-7 shadow shadow-sm content-page" style="background-color:@ColorThemeEnum.WhitePrimary;">
+        <form class="d-flex flex-column align-items-center gap-4 gap-lg-3 p-3 px-3 px-lg-5 ">
+            <span class="h5 mb-3 fw-bold text-center w-75">Choose your account type</span>
+
+            <AccountTypeChoose 
+                isActive
+                Title="Buy, Invest and Sell with Ease" 
+                Description="Full access to DealBusinesses' business opportunities. Find or list your business with confidence." 
+                />
+
+            <AccountTypeChoose Title="Scale Your Brokerage"
+                               Description="Exclusive access to premium listings and advanced tools to boost your negotiations." />
+
+           
+
+        </form>
+    </section>
+</aside>
+
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        GlobalService.AuthPageTitle = "Sell Your Business with Ease";
+        GlobalService.AuthPageDescription = "Detailed listings and expert support are at your fingertips. Sell your business quickly and securely, reaching a global audience of interested buyers and investors.";
+    }
+
+    public bool isActive { get; set; } = false;
+
+    void OnSelectAccount()
+    {
+        isActive = !isActive;
+    }
+}

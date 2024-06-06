@@ -1,0 +1,128 @@
+﻿@page "/auth/signup"
+@layout AuthLayout
+
+@inject IGlobalService GlobalService
+
+<PageTitle>DealBusinessHub - Sign up to your account</PageTitle>
+
+<style>
+
+    * {
+        font-size: 1.2rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+        form .form-group {
+            width: 100%;
+        }
+
+        form .form-control, form .form-select {
+            box-sizing: border-box;
+            padding: 10px;
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: @ColorThemeEnum.GreyTertiary !important;
+        }
+
+            form .form-control:focus, form .form-select:focus {
+                border-color: @ColorThemeEnum.RedPrimary !important;
+            }
+
+        form .signin {
+            width: 100%;
+            background-color: @ColorThemeEnum.RedPrimary !important;
+            border-color: @ColorThemeEnum.RedPrimary !important;
+            outline: none !important;
+            box-shadow: none !important;
+            transition: all 0.3s ease;
+        }
+
+            form .signin:hover {
+                transform: scale(1.05);
+            }
+
+            form .signin:active {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+    .line {
+        background-color: @ColorThemeEnum.GreyTertiary !important;
+        width: 5rem !important;
+        height: 1px !important;
+    }
+</style>
+
+
+<aside class="col-4 p-4 d-none d-lg-flex flex-column justify-content-center" style="background-image: url('../assets/img/AuthBackImage.png');">
+
+    <div style="color:@ColorThemeEnum.WhitePrimary;" class="d-flex flex-column gap-4">
+        <AuthPageTitle Title="@GlobalService.AuthPageTitle" />
+        <AuthPageDescription Description="@GlobalService.AuthPageDescription" />
+
+        <img src="../assets/img/paginationlogo.png" class="w-25" />
+    </div>
+
+</aside>
+<aside class="col d-grid gap-3 p-2 px-3 px-lg-0" style="background-color:@ColorThemeEnum.WhiteSecondary; align-content:center; place-items:center">
+    <header>
+        <img src="../assets/img/dealbusinesshublogo.png" />
+    </header>
+    <section class="rounded rounded-5 col-12 col-md-7 shadow shadow-sm content-page" style="background-color:@ColorThemeEnum.WhitePrimary;">
+        <form class="d-flex flex-column align-items-center gap-4 gap-lg-3 p-3 px-3 px-lg-5 pb-0">
+            <span class="h5 mb-3 fw-bold text-center w-75">Sign up to your account</span>
+            <div class="form-group">
+                <input type="text" class="form-control" id="email" placeholder="Fullname" />
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="email@exemplo.com" />
+            </div>
+            <div class="form-group">
+                <input type="tel" class="form-control" id="email" placeholder="Phone Number" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="************" />
+            </div>
+            <div class="form-group">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select your buyer type</option>
+                </select>
+            </div>
+
+            <NavLink href="/auth/account-email-verify" class="btn btn-primary signin">Create Account</NavLink>
+
+            <div class=" d-flex justify-content-between align-items-center gap-4">
+                <div class="line"></div>
+                <span style="font-size:.8rem !important">Or</span>
+                <div class="line"></div>
+            </div>
+
+
+            <button style="font-size:.8rem !important" class="btn d-flex align-items-center justify-content-center w-100 gap-5 border rounded rounded-fill  fw-bold">
+                <img src="../assets/img/google.png" style="aspect-ratio:1/1; width:8%;" />
+                Sign Up with Google
+            </button>
+
+            <p style="font-size:.8rem !important" class="text-decoration-none">
+                Already have an account?
+                <NavLink href="/auth/login" class="text-decoration-none text-dark fw-bold" style="font-size:.8rem !important">Sign In</NavLink>
+            </p>
+
+        </form>
+    </section>
+</aside>
+
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        GlobalService.AuthPageTitle = "Connect Directly with Business Partners";
+        GlobalService.AuthPageDescription = "Conduct business quickly and efficiently by connecting directly with trusted buyers, investors and sellers. Find the perfect opportunity for your next venture.";
+    }
+
+}
+

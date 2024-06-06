@@ -1,0 +1,29 @@
+﻿@inherits LayoutComponentBase
+@inject IGlobalService GlobalService
+
+<style>
+    .content-page::-webkit-scrollbar {
+        width: 10px;
+        display:none;
+    }
+
+    /* Track */
+    .content-page::-webkit-scrollbar-track {
+        background: @ColorThemeEnum.RedPrimary;
+    }
+
+    /* Handle */
+    .content-page::-webkit-scrollbar-thumb {
+        background: @ColorThemeEnum.RedPrimary;
+    }
+
+        /* Handle on hover */
+        .content-page::-webkit-scrollbar-thumb:hover {
+            background: @ColorThemeEnum.RedPrimary;
+        }
+</style>
+
+<main class="row main-content p-0 m-0 " style="height:100vh">
+    @Body
+</main>
+
