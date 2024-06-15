@@ -1,0 +1,63 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    margin-top: 12rem;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+
+@media only screen and (min-width : 1224px) {}
+
+@media only screen and (min-width : 768px) and (max-width : 1022px) {}
+
+/* typical tablet screen resolution */
+@media only screen and (max-width : 834px) {}
+
+/* landscape orientation */
+@media only screen and (min-width : 768px) and (max-width : 834px) and (orientation : landscape) {
+    .main-content {
+        margin-top: 20rem;
+    }
+}
+
+/* portrait orientation */
+@media only screen and (min-width : 768px) and (max-width : 834px) and (orientation : portrait) {
+    .main-content {
+        margin-top: 30rem;
+    }
+}
+
+/* typical phone screen resolution */
+@media only screen and (max-width : 768px) {
+    .main-content {
+        margin-top: 38rem;
+    }
+}
+
+/* landscape orientation */
+@media only screen and (min-width : 375px) and (max-width : 667px) and (orientation : landscape) {}
+
+/* portrait orientation */
+@media only screen and (min-width : 375px) and (max-width : 667px) and (orientation : portrait) {}

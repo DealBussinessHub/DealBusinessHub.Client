@@ -1,8 +1,10 @@
-﻿@page "/auth/choose-account"
+﻿@page "/business/auth/account-status-verify"
+
 @layout AuthLayout
 @inject IGlobalService GlobalService
+@inject NavigationManager NavigationManager
 
-<PageTitle>DealBusinessHub - Choose your account type</PageTitle>
+<PageTitle>DealBusinessHub - Account Status</PageTitle>
 
 <style>
 
@@ -71,18 +73,10 @@
     </header>
     <section class="rounded rounded-5 col-12 col-md-7 shadow shadow-sm content-page" style="background-color:@ColorThemeEnum.WhitePrimary;">
         <form class="d-flex flex-column align-items-center gap-4 gap-lg-3 p-3 px-3 px-lg-5 ">
-            <span class="h5 mb-3 fw-bold text-center w-75">Choose your account type</span>
-
-            <AccountTypeChoose 
-                isActive
-                Title="Buy, Invest and Sell with Ease" 
-                Description="Full access to DealBusinesses' business opportunities. Find or list your business with confidence." 
-                />
-
-            <AccountTypeChoose Title="Scale Your Brokerage"
-                               Description="Exclusive access to premium listings and advanced tools to boost your negotiations." />
-
-           
+            <span class="h4 fw-bold text-center w-75">You account was created.</span>
+            <p class="text-center" style="font-size:0.7rem; color:@ColorThemeEnum.GreySecondary">
+                You’ll be redirected to the main page in @counter seconds. Thanks!!
+            </p>
 
         </form>
     </section>
@@ -96,11 +90,21 @@
         GlobalService.AuthPageTitle = "Sell Your Business with Ease";
         GlobalService.AuthPageDescription = "Detailed listings and expert support are at your fingertips. Sell your business quickly and securely, reaching a global audience of interested buyers and investors.";
     }
+    public int counter { get; set; } = 5;
 
-    public bool isActive { get; set; } = false;
-
-    void OnSelectAccount()
+    //Navigate to Choose Account Page in 5 seconds and show the counter in the screen
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        isActive = !isActive;
+        if (firstRender)
+        {
+            while (counter > 0)
+            {
+                await Task.Delay(1000);
+                counter--;
+                StateHasChanged();
+            }
+            NavigationManager.NavigateTo("/business/auth/choose-account");
+        }
     }
+
 }

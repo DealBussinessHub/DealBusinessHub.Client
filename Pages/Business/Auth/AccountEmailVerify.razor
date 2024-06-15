@@ -1,10 +1,8 @@
-﻿@page "/auth/account-status-verify"
-
+﻿@page "/business/auth/account-email-verify"
 @layout AuthLayout
 @inject IGlobalService GlobalService
-@inject NavigationManager NavigationManager
 
-<PageTitle>DealBusinessHub - Account Status</PageTitle>
+<PageTitle>DealBusinessHub - Verify your account</PageTitle>
 
 <style>
 
@@ -73,10 +71,15 @@
     </header>
     <section class="rounded rounded-5 col-12 col-md-7 shadow shadow-sm content-page" style="background-color:@ColorThemeEnum.WhitePrimary;">
         <form class="d-flex flex-column align-items-center gap-4 gap-lg-3 p-3 px-3 px-lg-5 ">
-            <span class="h4 fw-bold text-center w-75">You account was created.</span>
+            <span class="h4 fw-bold text-center w-75">Put the code bellow</span>
             <p class="text-center" style="font-size:0.7rem; color:@ColorThemeEnum.GreySecondary">
-                You’ll be redirected to the main page in @counter seconds. Thanks!!
+                We sent a code on your email address: aldaiirmoraiss@gmail.com
             </p>
+
+            <div class="form-group">
+                <input type="text" class="form-control text-center" id="code" placeholder="000000" maxlength="6"/>
+            </div>
+            <NavLink href="/business/auth/account-status-verify" class="btn btn-primary signin">Verify</NavLink>
 
         </form>
     </section>
@@ -90,21 +93,6 @@
         GlobalService.AuthPageTitle = "Sell Your Business with Ease";
         GlobalService.AuthPageDescription = "Detailed listings and expert support are at your fingertips. Sell your business quickly and securely, reaching a global audience of interested buyers and investors.";
     }
-    public int counter { get; set; } = 5;
 
-    //Navigate to Choose Account Page in 5 seconds and show the counter in the screen
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            while (counter > 0)
-            {
-                await Task.Delay(1000);
-                counter--;
-                StateHasChanged();
-            }
-            NavigationManager.NavigateTo("/auth/choose-account");
-        }
-    }
-
+    
 }
