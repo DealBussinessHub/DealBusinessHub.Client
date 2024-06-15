@@ -1,14 +1,76 @@
 ﻿@* Add Section With Background Image with smoth shadow from the bottom*@
 
-<section class="hero-section" style="background-image: url('assets/img/herosectionimg.png'); height:100vh">
-    <div class="container py-5">
-        <div class="hero-content text-white">
-            <h1>Connect with <span style="color:@ColorThemeEnum.RedPrimary">profitable<br />business</span>  opportunities suited<br /> to your vision.</h1>
-            <a href="deals" class="btn btn-primary">View Deals</a>
+<section class="hero-section d-flex align-items-center"
+    style="background-image: url('assets/img/herosectionimg.png'); background-attachment: fixed; padding:8rem 0rem;box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.4);">
+    <div class="container d-flex flex-column gap-3 position-relative" style="">
+        <div class="hero-content text-white mb-4">
+            <h1>Connect with <span style="color:@ColorThemeEnum.RedPrimary">profitable<br />business</span>
+                opportunities suited<br /> to your vision.</h1>
         </div>
+
+        <div class="d-flex gap-2 align-items-center">
+            <button class="btn btn-light rounded rounded-pill">Businesses</button>
+            <button class="btn btn-dark rounded rounded-pill">Real estate</button>
+        </div>
+
+        <div class="rounded rounded-2 bg-white p-4 col-md-8 col-12">
+            <form class="row align-items-center row-gap-2">
+
+                <div class="form-group col-md-4 col-12">
+                    <input placeholder="Search here"
+                        class="form-control-sm col-12 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+                </div>
+
+                <div class="form-group col-md-3 col-6">
+                    <select class="form-control-sm bg-body-tertiary border-0 shadow-none py-3 px-4 form-select">
+                        <option selected value="">Country</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-3 col-6">
+                    <select class="form-control-sm  bg-body-tertiary border-0 shadow-none py-3 px-4 form-select">
+                        <option selected value="">Industry</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 col-12 ">
+                    <button type="button" class="btn btn-danger py-3 col-12"
+                        style="background-color: @ColorThemeEnum.RedPrimary;">Search</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="hero-rows">
+
+            <div class="d-flex hero-child flex-column text-center col-md-3 col-12 bg-body-tertiary p-4"
+                style="color:@ColorThemeEnum.RedPrimary;">
+                <h4>Buy & Invest</h4>
+                <p class="text-decoration-underline">Find your next business venture and embark on the journey to
+                    success today with our platform</p>
+            </div>
+
+            <div class="d-flex hero-child flex-column text-center col-md-3 col-12 bg-white p-4">
+                <h4 style="color:@ColorThemeEnum.RedPrimary;">Sell</h4>
+                <p class="">Transform your business into opportunity - list it now and pave the way for your next
+                    success story!</p>
+            </div>
+
+            <div class="d-flex hero-child flex-column text-center col-md-3 col-12 bg-white p-4">
+                <h4 style="color:@ColorThemeEnum.RedPrimary;">Broker</h4>
+                <p class="">Supercharge your brokerage career - partner with us to unlock endless possibilities in the
+                    world of business!</p>
+            </div>
+
+            <div class="d-flex hero-child flex-column text-white text-center col-md-3 col-12 p-4"
+                style="background-color:@ColorThemeEnum.RedPrimary;">
+                <h4>Startup Hub</h4>
+                <p class="text-white-50">Join a vibrant community of startups and entrepreneurs. Experience the
+                    power of
+                    collaboration and innovation.</p>
+            </div>
+        </div>
+
     </div>
+
 </section>
-
-@code {
-
-}

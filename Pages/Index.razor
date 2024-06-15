@@ -1,8 +1,559 @@
 ﻿@page "/"
 @inject NavigationManager naviationManager
 
-<h3>Index</h3>
 
-@code{
-   
+<style>
+    .marquee {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        animation: marquee 15s alternate-reverse backwards both infinite;
+    }
+
+    @("@")keyframes marquee {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        100% {
+            transform: translate(-100%, 0);
+        }
+    }
+</style>
+
+<section class="d-flex flex-column my-5 py-5 py-md-0">
+    <!-- Add Partners logo carousel using tag marquee-->
+
+    <div class="d-flex gap-2">
+        <div class="p-4 bg-white shadow " style="z-index:1">
+            <img src="assets/img/OurPartners.png" class="img-fluid" alt="Hero Image">
+        </div>
+        <div class="d-flex marquee justify-content-between overflow-hidden bg-white">
+
+            <div class="p-4 bg-white img">
+                <img src="assets/img/shefinds-logo.png" class="img-fluid" alt="Hero Image">
+            </div>
+
+            <div class="p-4 bg-white img">
+                <img src="assets/img/yahoo-news-img.png" class="img-fluid" alt="Hero Image">
+            </div>
+
+            <div class="p-4 bg-white img">
+                <img src="assets/img/shefinds-logo.png" class="img-fluid" alt="Hero Image">
+            </div>
+
+            <div class="p-4 bg-white img">
+                <img src="assets/img/yahoo-news-img.png" class="img-fluid" alt="Hero Image">
+            </div>
+
+            <div class="p-4 bg-white img">
+                <img src="assets/img/yahoo-img.png" class="img-fluid" alt="Hero Image">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="d-flex flex-column my-5 py-5 align-items-center justify-content-center container px-4 px-md-0">
+    <h1 class="text-center">Millions of Opportunities for Your Business <br />
+        Success. Discover, Connect, Negotiate... <br />
+        Achieve Your Business Dreams. <br />
+        <span style="color:@ColorThemeEnum.RedPrimary">Join Us and Make it real.</span>
+    </h1>
+
+    <div class="row align-items-end mt-5 gap-2">
+        <div class="col rounded rounded-5 p-4" style="height:335px; background-color:rgba(240, 226, 226, 1)">
+            <h3 style="color:@ColorThemeEnum.RedPrimary">10x</h3>
+            <p>More Business Opportunities</p>
+        </div>
+
+        <div class="col rounded rounded-5 p-4 text-white" style="height:; background-color:@ColorThemeEnum.RedPrimary">
+            <h3>Returning Costumers</h3>
+            <div class="d-flex">
+                <div class="rounded rounded-circle p-4 bg-white"></div>
+                <div class="rounded rounded-circle p-4 bg-body-secondary" style="margin-left:-20px"></div>
+                <div class="rounded rounded-circle p-4 bg-white" style="margin-left:-20px"></div>
+            </div>
+        </div>
+
+        <div class="col rounded rounded-5 p-4 bg-white" style=" ">
+            <h3 style="color:@ColorThemeEnum.RedPrimary">88%</h3>
+            <p>Secure Transactions</p>
+        </div>
+
+        <div class="col rounded rounded-5 p-4 " style="background-color:rgba(240, 226, 226, 1)">
+            <h3 style="color:@ColorThemeEnum.RedPrimary">Other information</h3>
+            <p>Secure Transactions</p>
+        </div>
+
+        <div class="col rounded rounded-5 p-4 text-white"
+            style="height:335px; background-color:@ColorThemeEnum.RedPrimary">
+            <h3>+600</h3>
+            <p>Businesses</p>
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="d-flex flex-column my-5 py-5 container  px-4 px-md-0">
+
+    <div>
+        <h1 class="">Business to buy & invest</h1>
+        <p>Find your next business venture and embark on the journey to success today with our platform</p>
+    </div>
+
+    <div class="row gap-4 justify-content-evenly mt-4">
+
+        <CardCompany />
+        <CardCompany />
+        <CardCompany />
+        <CardCompany />
+        <div class="col-12 text-center my-3">
+            <button class="btn btn-outline-danger rounded rounded-pill">See all business</button>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="d-flex flex-column my-5 py-5 container  px-4 px-md-0 specialist-section">
+    <div class="d-flex align-items-end justify-content-between">
+        <div class="w-50">
+            <h1 class="">Brokers and Specialists</h1>
+            <p class="m-0 p-0">Lorem Ipsum is a standard dummy text used in printing and web design. Learn about its
+                origin, variations, translations and how to generate it online.</p>
+        </div>
+        <div class="btn-group gap-2">
+            <button class="btn btn-dark rounded fa fa-arrow-left btnPrev"></button>
+            <button class="btn btn-dark rounded fa fa-arrow-right btnNext"></button>
+        </div>
+    </div>
+
+    <div class="my-5">
+        <swiper-container id="specialist" init="false">
+            <swiper-slide class="my-3" lazy="true">
+                <div class="d-flex rounded rounded-3 flex-column col-12 shadow ">
+                    <header class="position-relative d-flex justify-content-center flex-column align-items-center">
+                        <img src="assets/img/curve.svg"
+                            class="img-fluid position-absolute top-0 rounded rounded-bottom-0" />
+                        <div class="border border-dark rounded bg-dark position-absolute"
+                            style="width:100px; height:100px; top:-15px">
+
+                        </div>
+                        <h5 class="d-flex align-items-center gap-2" style="margin-top:110px">
+                            <span class="fw-bolder">Boker Name</span>
+                            <p class="p-0 m-0" style="font-size:10px"><i
+                                    class="fa fa-star text-warning m-0 p-0"></i>5/10</p>
+                        </h5>
+                        <p style="font-size:12px" class="p-0 m-0">Business Broker in Lagos | technology</p>
+                        <p class="p-0 m-0" style="font-size:12px"><i class="fa fa-map-marker text-danger"
+                                aria-hidden="true"></i> Location: Luanda, Angola</p>
+                    </header>
+                    <main class="p-4 d-flex flex-column gap-3">
+                        <p style="font-size:12px">
+                            Lorem Ipsum is a standard dummy text used in printing and web design. Learn about its
+                            origin, variations, translations and how to generate.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center py-2 px-4"
+                            style="background-color:@ColorThemeEnum.GreyTertiary;font-size:12px">
+                            <div class="d-flex gap-2 align-items-center">
+                                <p class="p-0 m-0">Industries</p>
+                                <i class="fa fa-info text-bg-dark text-white p-1 rounded" style="font-size:.5rem"
+                                    data-bs-toggle="tooltip" data-bs-html="true"
+                                    title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"></i>
+                            </div>
+                            <h5 class="p-0 m-0 fw-bolder" style="font-size:12px">Technology 7+ more</h5>
+                        </div>
+                        <button type="button" class="btn btn-danger py-2"
+                            style="background-color: @ColorThemeEnum.RedPrimary;">
+                            Send proposal
+                        </button>
+                    </main>
+                </div>
+            </swiper-slide>
+            <swiper-slide class="my-3" lazy="true">
+                <div class="d-flex rounded rounded-3 flex-column col-12 shadow ">
+                    <header class="position-relative d-flex justify-content-center flex-column align-items-center">
+                        <img src="assets/img/curve.svg"
+                            class="img-fluid position-absolute top-0 rounded rounded-bottom-0" />
+                        <div class="border border-dark rounded bg-dark position-absolute"
+                            style="width:100px; height:100px; top:-15px">
+
+                        </div>
+                        <h5 class="d-flex align-items-center gap-2" style="margin-top:110px">
+                            <span class="fw-bolder">Boker Name</span>
+                            <p class="p-0 m-0" style="font-size:10px"><i
+                                    class="fa fa-star text-warning m-0 p-0"></i>5/10</p>
+                        </h5>
+                        <p style="font-size:12px" class="p-0 m-0">Business Broker in Lagos | technology</p>
+                        <p class="p-0 m-0" style="font-size:12px"><i class="fa fa-map-marker text-danger"
+                                aria-hidden="true"></i> Location: Luanda, Angola</p>
+                    </header>
+                    <main class="p-4 d-flex flex-column gap-3">
+                        <p style="font-size:12px">
+                            Lorem Ipsum is a standard dummy text used in printing and web design. Learn about its
+                            origin, variations, translations and how to generate.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center py-2 px-4"
+                            style="background-color:@ColorThemeEnum.GreyTertiary;font-size:12px">
+                            <div class="d-flex gap-2 align-items-center">
+                                <p class="p-0 m-0">Industries</p>
+                                <i class="fa fa-info text-bg-dark text-white p-1 rounded" style="font-size:.5rem"
+                                    data-bs-toggle="tooltip" data-bs-html="true"
+                                    title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"></i>
+                            </div>
+                            <h5 class="p-0 m-0 fw-bolder" style="font-size:12px">Technology 7+ more</h5>
+                        </div>
+                        <button type="button" class="btn btn-danger py-2"
+                            style="background-color: @ColorThemeEnum.RedPrimary;">
+                            Send proposal
+                        </button>
+                    </main>
+                </div>
+            </swiper-slide>
+            <swiper-slide class="my-3" lazy="true">
+                <div class="d-flex rounded rounded-3 flex-column col-12 shadow ">
+                    <header class="position-relative d-flex justify-content-center flex-column align-items-center">
+                        <img src="assets/img/curve.svg"
+                            class="img-fluid position-absolute top-0 rounded rounded-bottom-0" />
+                        <div class="border border-dark rounded bg-dark position-absolute"
+                            style="width:100px; height:100px; top:-15px">
+
+                        </div>
+                        <h5 class="d-flex align-items-center gap-2" style="margin-top:110px">
+                            <span class="fw-bolder">Boker Name</span>
+                            <p class="p-0 m-0" style="font-size:10px"><i
+                                    class="fa fa-star text-warning m-0 p-0"></i>5/10</p>
+                        </h5>
+                        <p style="font-size:12px" class="p-0 m-0">Business Broker in Lagos | technology</p>
+                        <p class="p-0 m-0" style="font-size:12px"><i class="fa fa-map-marker text-danger"
+                                aria-hidden="true"></i> Location: Luanda, Angola</p>
+                    </header>
+                    <main class="p-4 d-flex flex-column gap-3">
+                        <p style="font-size:12px">
+                            Lorem Ipsum is a standard dummy text used in printing and web design. Learn about its
+                            origin, variations, translations and how to generate.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center py-2 px-4"
+                            style="background-color:@ColorThemeEnum.GreyTertiary;font-size:12px">
+                            <div class="d-flex gap-2 align-items-center">
+                                <p class="p-0 m-0">Industries</p>
+                                <i class="fa fa-info text-bg-dark text-white p-1 rounded" style="font-size:.5rem"
+                                    data-bs-toggle="tooltip" data-bs-html="true"
+                                    title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"></i>
+                            </div>
+                            <h5 class="p-0 m-0 fw-bolder" style="font-size:12px">Technology 7+ more</h5>
+                        </div>
+                        <button type="button" class="btn btn-danger py-2"
+                            style="background-color: @ColorThemeEnum.RedPrimary;">
+                            Send proposal
+                        </button>
+                    </main>
+                </div>
+            </swiper-slide>
+            <swiper-slide class="my-3" lazy="true">
+                <div class="d-flex rounded rounded-3 flex-column col-12 shadow ">
+                    <header class="position-relative d-flex justify-content-center flex-column align-items-center">
+                        <img src="assets/img/curve.svg"
+                            class="img-fluid position-absolute top-0 rounded rounded-bottom-0" />
+                        <div class="border border-dark rounded bg-dark position-absolute"
+                            style="width:100px; height:100px; top:-15px">
+
+                        </div>
+                        <h5 class="d-flex align-items-center gap-2" style="margin-top:110px">
+                            <span class="fw-bolder">Boker Name</span>
+                            <p class="p-0 m-0" style="font-size:10px"><i
+                                    class="fa fa-star text-warning m-0 p-0"></i>5/10</p>
+                        </h5>
+                        <p style="font-size:12px" class="p-0 m-0">Business Broker in Lagos | technology</p>
+                        <p class="p-0 m-0" style="font-size:12px"><i class="fa fa-map-marker text-danger"
+                                aria-hidden="true"></i> Location: Luanda, Angola</p>
+                    </header>
+                    <main class="p-4 d-flex flex-column gap-3">
+                        <p style="font-size:12px">
+                            Lorem Ipsum is a standard dummy text used in printing and web design. Learn about its
+                            origin, variations, translations and how to generate.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center py-2 px-4"
+                            style="background-color:@ColorThemeEnum.GreyTertiary;font-size:12px">
+                            <div class="d-flex gap-2 align-items-center">
+                                <p class="p-0 m-0">Industries</p>
+                                <i class="fa fa-info text-bg-dark text-white p-1 rounded" style="font-size:.5rem"
+                                    data-bs-toggle="tooltip" data-bs-html="true"
+                                    title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"></i>
+                            </div>
+                            <h5 class="p-0 m-0 fw-bolder" style="font-size:12px">Technology 7+ more</h5>
+                        </div>
+                        <button type="button" class="btn btn-danger py-2"
+                            style="background-color: @ColorThemeEnum.RedPrimary;">
+                            Send proposal
+                        </button>
+                    </main>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+    </div>
+
+</section>
+
+
+<section class="d-flex flex-column my-5 py-5 container  px-4 px-md-0 an-section">
+    <div class="d-flex align-items-end justify-content-between">
+        <div class="w-75">
+            <h3 class="fw-bolder">Unlock Your Potential: Discover, Connect,<br />
+                and Achieve Success with DealBusinesses!</h3>
+            <p class="m-0 p-0 w-75">Embark on the path to business success with DealBusinesses.
+                uyers, investors, sellers, and brokers. Explore, sell, or brokerdeals with
+                confidence. Join us and unlock your entrepreneurial dreams today!</p>
+        </div>
+        <div class="btn-group gap-2">
+            <button class="btn btn-dark rounded fa fa-arrow-left btnPrev"></button>
+            <button class="btn btn-dark rounded fa fa-arrow-right btnNext"></button>
+        </div>
+    </div>
+
+    <div class="mt-5 ">
+        <swiper-container id="an" space-between="20" pagination>
+            <swiper-slide class="bg-dark rounded rounded-3 p-5 my-5">
+                <div class="row row-gap-4">
+                    <div class="col-12 col-md-6 position-relative">
+                        <img src="assets/img/unsplash.png" class="img-fluid h-100" />
+                        <button class="btn text-white rounded px-5 rounded-pill position-absolute  "
+                            style="background-color:rgba(0,0,0,0.5); left:100px; bottom:10px">Some text
+                            animation</button>
+                    </div>
+                    <div class="text-white d-flex col-12 col-md-6 flex-column">
+                        <div class="d-flex flex-column flex-grow-1">
+                            <h3 class="fw-bolder">Sell Your Business with<br /> Ease and Confidence!</h3>
+                            <br>
+                            <p>Unleash your entrepreneurial potential and reach new heights! With DealBusinesses,
+                                you can list your business easily and quickly. Take advantage of our platform to
+                                find the perfect buyer and investor, and then achieve your goals.</p>
+                        </div>
+                        <button class="btn btn-light align-self-start text-dark rounded rounded-pill ">See all
+                            business</button>
+                    </div>
+                </div>
+            </swiper-slide>
+            <swiper-slide class="bg-dark rounded rounded-3 p-5 my-5">
+                <div class="row row-gap-4">
+                    <div class="col-12 col-md-6 position-relative">
+                        <img src="assets/img/unsplash.png" class="img-fluid h-100" />
+                        <button class="btn text-white rounded px-5 rounded-pill position-absolute  "
+                            style="background-color:rgba(0,0,0,0.5); left:100px; bottom:10px">Some text
+                            animation</button>
+                    </div>
+                    <div class="text-white d-flex col-12 col-md-6 flex-column">
+                        <div class="d-flex flex-column flex-grow-1">
+                            <h3 class="fw-bolder">Sell Your Business with<br /> Ease and Confidence!</h3>
+                            <br>
+                            <p>Unleash your entrepreneurial potential and reach new heights! With DealBusinesses,
+                                you can list your business easily and quickly. Take advantage of our platform to
+                                find the perfect buyer and investor, and then achieve your goals.</p>
+                        </div>
+                        <button class="btn btn-light align-self-start text-dark rounded rounded-pill ">See all
+                            business</button>
+                    </div>
+                </div>
+            </swiper-slide>
+            <swiper-slide class="bg-dark rounded rounded-3 p-5 my-5">
+                <div class="row row-gap-4">
+                    <div class="col-12 col-md-6 position-relative">
+                        <img src="assets/img/unsplash.png" class="img-fluid h-100" />
+                        <button class="btn text-white rounded px-5 rounded-pill position-absolute  "
+                            style="background-color:rgba(0,0,0,0.5); left:100px; bottom:10px">Some text
+                            animation</button>
+                    </div>
+                    <div class="text-white d-flex col-12 col-md-6 flex-column">
+                        <div class="d-flex flex-column flex-grow-1">
+                            <h3 class="fw-bolder">Sell Your Business with<br /> Ease and Confidence!</h3>
+                            <br>
+                            <p>Unleash your entrepreneurial potential and reach new heights! With DealBusinesses,
+                                you can list your business easily and quickly. Take advantage of our platform to
+                                find the perfect buyer and investor, and then achieve your goals.</p>
+                        </div>
+                        <button class="btn btn-light align-self-start text-dark rounded rounded-pill ">See all
+                            business</button>
+                    </div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+    </div>
+
+
+</section>
+
+<div class="d-flex justify-content-center w-100">
+    <hr class="w-50">
+</div>
+
+<section class="d-flex justify-content-center flex-column text-center my-5 px-5 gap-5">
+    <h3 class="fw-bolder">Browse business <br> LISTINGS BY TOP CITIES</h3>
+
+    <div class="d-flex justify-content-center flex-wrap align-items-center gap-4">
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Childrens</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Test</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Bombs</button>
+    </div>
+</section>
+
+<div class="d-flex justify-content-center w-100">
+    <hr class="w-50">
+</div>
+
+<section class="d-flex justify-content-center flex-column text-center my-5 px-5 gap-5">
+    <h3 class="fw-bolder">Browse more <br> POPULAR BUSINESSES</h3>
+
+    <div class="d-flex justify-content-center flex-wrap align-items-center gap-4">
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Childrens</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Test</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Funcionality</button>
+        <button class="btn btn-outline-dark rounded rounded-pill px-4">Bombs</button>
+    </div>
+</section>
+
+<div class="d-flex justify-content-center w-100">
+    <hr class="w-50">
+</div>
+
+<section class="d-flex justify-content-center text-center my-5 pb-5 gap-5">
+    <div class="d-flex align-items-center gap-3">
+        <i class="fa fa-linkedin bg-info border btn rounded rounded-circle p-4"></i>
+        <span class="fw-bold text-info">Linkedin</span>
+    </div>
+
+    <div class="d-flex align-items-center gap-3">
+        <i class="fa fa-facebook bg-info border btn rounded rounded-circle p-4"></i>
+        <span class="fw-bold text-info">Facebook</span>
+    </div>
+
+    <div class="d-flex align-items-center gap-3">
+        <i class="fa fa-instagram bg-info border btn rounded rounded-circle p-4"></i>
+        <span class="fw-bold text-info">Instagram</span>
+    </div>
+
+</section>
+
+
+
+<script>
+    let swiperEl = document.querySelector('.specialist-section #specialist');
+    let btnPrev = document.querySelector('.specialist-section .btnPrev');
+    let btnNext = document.querySelector('.specialist-section .btnNext');
+
+    let swiperElAn = document.querySelector('.an-section #an');
+    let btnPrevAn = document.querySelector('.an-section .btnPrev');
+    let btnNextAn = document.querySelector('.an-section .btnNext');
+
+
+
+    const params = {
+        slidesPerView: 1,
+        freeMode: true,
+        spaceBetween: 10,
+        pagination: false,
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+            },
+        },
+        on: {
+            init() {
+                // ...
+            },
+        },
+    }
+
+    // now we need to assign all parameters to Swiper element
+    Object.assign(swiperEl, params);
+
+    // and now initialize it
+    swiperEl.initialize();
+
+
+
+
+    btnNext.addEventListener('click', () => {
+        swiperEl.swiper.slideNext();
+    });
+
+    btnPrev.addEventListener('click', () => {
+        swiperEl.swiper.slidePrev();
+    });
+
+    btnNextAn.addEventListener('click', () => {
+        swiperElAn.swiper.slideNext();
+    });
+
+    btnPrevAn.addEventListener('click', () => {
+        swiperElAn.swiper.slidePrev();
+    });
+
+
+    // swiperEl.addEventListener('swiperprogress', (event) => {
+    //   const [swiper, progress] = event.detail;
+
+    //     if (swiper.isBeginning) {
+    //         btnPrev.setAttribute('disabled', true);
+    //     }else{
+    //         btnPrev.removeAttribute('disabled');
+    //     }
+
+    //     if (swiper.isEnd) {
+    //           btnNext.setAttribute('disabled', true);
+    //       }else{
+    //          btnPrev.removeAttribute('disabled');
+    //       }
+    // });
+
+
+</script>
+
+@code {
+
 }
