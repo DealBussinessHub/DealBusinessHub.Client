@@ -1,3 +1,9 @@
-@page "/business/seller/search/{s:string}"
+@page "/business/seller/search/"
+@page "/business/seller/search/{s}"
+<h1>Search <br> @s</h1>
 
-<h1>Search</h1>
+
+@code{
+    [Parameter]
+    public string s { get; set; }
+}

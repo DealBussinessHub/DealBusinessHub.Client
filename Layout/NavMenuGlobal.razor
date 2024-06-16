@@ -1,0 +1,134 @@
+<style>
+    .navbar-toggler {
+        appearance: none;
+        cursor: pointer;
+        width: 3.5rem;
+        height: 2.5rem;
+        color: white;
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler:checked {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .top-row {
+        height: 3.5rem;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-item {
+        font-size: 0.9rem;
+    }
+
+
+    .nav-item .nav-link {
+        color: black;
+        background: none;
+        border: none;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-item a.active {
+        background-color: rgba(0, 0, 0, 0.04);
+        color: black;
+    }
+
+    .nav-item .nav-link:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+        color: black;
+    }
+
+    .nav-scrollable {
+        display: none;
+    }
+
+    .navbar-toggler:checked~.nav-scrollable {
+        display: block;
+    }
+
+
+    @("@")media (min-width: 641px) {
+        .navbar-toggler {
+            display: '';
+        }
+
+        .nav-scrollable {
+            /* Never collapse the sidebar for wide screens */
+            display: block;
+
+            /* Allow sidebar to scroll for tall menus */
+            height: calc(100vh - 3.5rem);
+            overflow-y: auto;
+        }
+    }
+</style>
+
+<div class="d-flex flex-column">
+    <nav class="navbar navbar-expand-lg" style="background-color: @ColorThemeEnum.RedPrimary">
+        <div class="container-fluid container-md">
+            <NavLink class="navbar-brand" href="#">
+                <img src="assets/img/dealbusinesshublogo.png" class="w-75" style=" filter: brightness(0) invert(1);" />
+            </NavLink>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg bg-white">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="container-fluid container-md">
+                <ul class="navbar-nav mx-auto gap-0 gap-md-2 justify-content-between">
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link" href="/business/seller/dashboard" role="link" aria-expanded="false">
+                            Dashboard
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link " href="/business/seller/listings" role="link" aria-expanded="false">
+                            Listings
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link " href="/business/seller/search" role="link" aria-expanded="false">
+                            Search
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link " href="/business/seller/chat" role="link" aria-expanded="false">
+                            Chat
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link " href="#Offers" role="link" aria-expanded="false">
+                            Offers
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link " href="#News" role="link" aria-expanded="false">
+                            News
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link " href="#Blog" role="link" aria-expanded="false">
+                            Blog
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 m-0">
+                        <NavLink class="nav-link " href="/business/seller/support" role="link" aria-expanded="false">
+                            Help and Support
+                        </NavLink>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
