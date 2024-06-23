@@ -8,9 +8,9 @@
 
 <section class="container" style="margin-top: -100px;">
     <div class="row gap-4">
-        <div class="p-4 col-4 rounded d-grid align-content-between gap-5"
-            style="background-color:@ColorThemeEnum.RedPrimary;">
-            <div class="d-flex align-items-center justify-content-between">
+        <div class="p-4 col-4 rounded d-grid align-content-between gap-5 position-relative"
+            style="background-color:@ColorThemeEnum.RedPrimary;overflow:hidden">
+            <div class="d-flex align-items-center justify-content-between" style="z-index:1">
                 <div class="btn btn-danger">
                     <i class="fa fa-wifi"></i>
                     Live projects
@@ -21,25 +21,39 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-column text-white">
+            <div class="d-flex flex-column text-white" style="z-index:1">
                 <h1 class="fw-bolder">56</h1>
                 <p>Currently, the projects is in progress.</p>
             </div>
+
+            <svg class="position-absolute" style="bottom:0; overflow:hidden;" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 470 320">
+                <path fill="#B84E4E" fill-opacity="1"
+                    d="M0,32L60,37.3C120,43,10,163,360,96C480,139,600,213,720,218.7C840,224,960,160,1080,165.3C1200,171,1320,245,1380,282.7L1440,320L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                </path>
+            </svg>
         </div>
 
-        <div class="p-4 col-3 rounded d-grid align-content-between gap-5"
-            style="background-color:@ColorThemeEnum.RedPrimary;">
-            <div class="d-flex align-items-center justify-content-between">
+        <div class="p-4 col-3 rounded d-grid align-content-between gap-5 position-relative"
+            style="background-color:@ColorThemeEnum.RedPrimary;overflow:hidden">
+            <div class="d-flex align-items-center justify-content-between" style="z-index:1">
                 <div class="btn btn-danger">
                     <i class="fa fa-bars-progress"></i>
                     In Progress
                 </div>
             </div>
 
-            <div class="d-flex flex-column text-white">
+            <div class="d-flex flex-column text-white" style="z-index:1">
                 <h1 class="fw-bolder">124</h1>
                 <p>Projects in progress</p>
             </div>
+
+            <svg class="position-absolute" style="bottom:0; overflow:hidden;" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 370 320">
+                <path fill="#B84E4E" fill-opacity="1"
+                    d="M0,32L60,37.3C120,43,70,63,360,96C480,139,600,213,720,218.7C840,224,960,160,1080,165.3C1200,171,1320,245,1380,282.7L1440,320L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                </path>
+            </svg>
         </div>
 
         <div class="p-4 col-3 rounded d-grid align-content-between gap-5"
@@ -53,7 +67,7 @@
             </div>
 
             <div class="d-flex flex-column text-white">
-                <h1 class="fw-bolder">24</h1>
+                <h1 class="fw-bolder">0</h1>
                 <p>Completed projects</p>
             </div>
         </div>
@@ -66,13 +80,15 @@
         <button class="btn bg-white rounder mb-4 px-3 rounded-pill align-self-start">Your results now</button>
 
         <div class="row gap-4">
-            <div class="col-7 p-4 bg-white rounded rounded-3">
+            <div class="col-7 p-4 bg-white rounded rounded-3 d-flex flex-column">
                 <strong>PERFORMANCE</strong>
+                <LineCustom />
             </div>
 
-            <div class="col-4 p-4    bg-white rounded rounded-3">
+            <div class="col-4 p-4 bg-white rounded rounded-3 d-flex flex-column">
                 <strong>BUSINESS
                     VALUATION</strong>
+                <PieChartCustom />
             </div>
         </div>
 
@@ -223,13 +239,13 @@
                 translations and how to generate it online.</p>
         </div>
 
-        <section class="bg-white p-4">
-            <header class="d-flex justify-content-between align-items-center">
+        <section class="bg-white  shadow rounded">
+            <header class="d-flex justify-content-between align-items-center p-4" style="background-color: #FCFCFC;">
                 <h6>Your Businesses</h6>
-                <input placeholder="Search here"
-                    class="form-control-sm col-4 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+                <input placeholder="Search here" style="background-color: @ColorThemeEnum.WhiteSecondary;"
+                    class="form-control-sm col-4 border-0 shadow-none py-3 px-4" />
             </header>
-            <main class="w-100">
+            <main class="w-100 p-4">
                 <table class="table w-100">
                     <thead>
                         <tr>
@@ -268,19 +284,12 @@
 
 <script>
 
-    let swiperElAn = document.querySelector('swiper-container');
-    let btnPrevAn = document.querySelector('.btnPrev');
-    let btnNextAn = document.querySelector('.btnNext');
-
-    btnNextAn.addEventListener('click', () => {
-        swiperElAn.swiper.slideNext();
+    document.querySelector('.btnNext').addEventListener('click', () => {
+        document.querySelector('swiper-container').swiper.slideNext();
     });
 
-    btnPrevAn.addEventListener('click', () => {
-        swiperElAn.swiper.slidePrev();
+    document.querySelector('.btnPrev').addEventListener('click', () => {
+        document.querySelector('swiper-container').swiper.slidePrev();
     });
-
-
-
 
 </script>

@@ -1,15 +1,33 @@
 @* Add Section With Background Image with smoth shadow from the bottom*@
 
 <section class="hero-section d-flex align-items-center"
-    style="background-image: url('assets/img/herosectionimg.png'); background-attachment: fixed; padding:8rem 0rem;box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.4);">
+         style="background-image: url('assets/img/herosectionimg.png'); background-attachment: fixed; padding:8rem 0rem;box-shadow: 0px -99px 33px -27px rgba(57,24,24,0.9) inset;background-repeat:no-repeat; background-size:cover; background-position-y:center">
     <div class="container d-flex flex-column gap-3 position-relative" style="">
-        <div class="hero-content text-white mb-4">
-            <h1>Let's turn your ideas into reality!"</h1>
-            <p class="w-50 text-white-50">Explore exciting business and investment opportunities. We're here to
-                help you find the best opportunities to achieve your goals.</p>
+        <div class="hero-content text-white mb-4 @CssClass">
+            <h1 class="@CssClassT">@Title</h1>
+            <p class="w-50 text-white-50 @CssClassD">@Description</p>
         </div>
 
 
     </div>
 
 </section>
+
+@code{
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public string? Description { get; set; }
+    [Parameter] public string? CssClass { get; set; }
+    [Parameter] public string? CssClassT { get; set; }
+    [Parameter] public string? CssClassD { get; set; }
+
+    protected override void OnInitialized(){
+        if(string.IsNullOrEmpty(Title)){
+            Title = "Let's turn your ideas into reality!";
+        }
+
+        if(string.IsNullOrEmpty(Description)){
+            Description = "Explore exciting business and investment opportunities. We're here to help you find the best opportunities to achieve your goals.";
+        }
+    }
+
+}

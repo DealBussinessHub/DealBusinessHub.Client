@@ -1,0 +1,108 @@
+﻿<LineChart @ref="lineChart" TItem="WatcherEvent" Options="@lineChartOptions" />
+@code {
+    private LineChart<WatcherEvent> lineChart;
+
+    LineChartOptions lineChartOptions = new()
+        {
+            Parsing = new ChartParsing
+            {
+                XAxisKey = "sector",
+                YAxisKey = "count",
+            }
+        };
+
+    private List<string> backgroundColors = new() { ChartColor.FromRgba(255, 99, 132, 0.2f), ChartColor.FromRgba(54, 162, 235, 0.2f), ChartColor.FromRgba(255, 206, 86, 0.2f), ChartColor.FromRgba(75, 192, 192, 0.2f), ChartColor.FromRgba(153, 102, 255, 0.2f), ChartColor.FromRgba(255, 159, 64, 0.2f) };
+    private List<string> borderColors = new() { ChartColor.FromRgba(255, 99, 132, 1f), ChartColor.FromRgba(54, 162, 235, 1f), ChartColor.FromRgba(255, 206, 86, 1f), ChartColor.FromRgba(75, 192, 192, 1f), ChartColor.FromRgba(153, 102, 255, 1f), ChartColor.FromRgba(255, 159, 64, 1f) };
+
+    private bool isAlreadyInitialised;
+
+    public class WatcherEvent
+    {
+        public string Sector { get; set; }
+
+        public int Count { get; set; }
+
+        public DateTime Date { get; } = DateTime.Now;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!isAlreadyInitialised)
+        {
+            isAlreadyInitialised = true;
+
+            await lineChart.Clear();
+            await lineChart.AddDataSet(GetLineChartDataset1(), GetLineChartDataset2());
+        }
+    }
+
+    private LineChartDataset<WatcherEvent> GetLineChartDataset1()
+    {
+        return new()
+            {
+                Label = "# of randoms",
+                Data = new List<WatcherEvent>
+            {
+                new WatcherEvent { Sector = "0", Count = 0 },
+                new WatcherEvent { Sector = "1", Count = 250 },
+                new WatcherEvent { Sector = "2", Count = 500 },
+                new WatcherEvent { Sector = "3", Count = 700 },
+                new WatcherEvent { Sector = "4", Count = 1000 },
+                new WatcherEvent { Sector = "5", Count = 257 },
+                new WatcherEvent { Sector = "6", Count = 30 },
+                new WatcherEvent { Sector = "7", Count = 100 },
+                new WatcherEvent { Sector = "8", Count = 70 },
+                new WatcherEvent { Sector = "9", Count = 900 },
+                new WatcherEvent { Sector = "10", Count = 900 },
+                new WatcherEvent { Sector = "11", Count = 860 },
+                new WatcherEvent { Sector = "12", Count = 300 },
+                new WatcherEvent { Sector = "13", Count = 200 },
+                new WatcherEvent { Sector = "14", Count = 900 },
+                new WatcherEvent { Sector = "15", Count = 960 },
+                new WatcherEvent { Sector = "16", Count = 1000 },
+            },
+                BackgroundColor = backgroundColors[0], // line chart can only have one color
+                BorderColor = borderColors[0],
+                Fill = true,
+                PointRadius = 3,
+                BorderWidth = 1,
+                PointBorderColor = Enumerable.Repeat(borderColors.First(), 6).ToList(),
+                CubicInterpolationMode = "monotone",
+            };
+    }
+
+    private LineChartDataset<WatcherEvent> GetLineChartDataset2()
+    {
+        return new()
+            {
+                Label = "# of randoms",
+                Data = new List<WatcherEvent>
+            {
+                new WatcherEvent { Sector = "0", Count = 0 },
+                new WatcherEvent { Sector = "1", Count = 900 },
+                new WatcherEvent { Sector = "2", Count = 200 },
+                new WatcherEvent { Sector = "3", Count =  1000 },
+                new WatcherEvent { Sector = "4", Count = 34 },
+                new WatcherEvent { Sector = "5", Count = 340 },
+                new WatcherEvent { Sector = "6", Count = 245 },
+                new WatcherEvent { Sector = "7", Count = 378 },
+                new WatcherEvent { Sector = "8", Count = 500 },
+                new WatcherEvent { Sector = "9", Count = 527 },
+                new WatcherEvent { Sector = "10", Count = 600 },
+                new WatcherEvent { Sector = "11", Count = 500 },
+                new WatcherEvent { Sector = "12", Count = 600 },
+                new WatcherEvent { Sector = "13", Count = 700 },
+                new WatcherEvent { Sector = "14", Count = 800 },
+                new WatcherEvent { Sector = "15", Count = 950 },
+                new WatcherEvent { Sector = "16", Count = 1000 },
+            },
+                BackgroundColor = backgroundColors[1], // line chart can only have one color
+                BorderColor = borderColors[1],
+                Fill = true,
+                PointRadius = 3,
+                BorderWidth = 1,
+                PointBorderColor = Enumerable.Repeat(borderColors.First(), 6).ToList(),
+                CubicInterpolationMode = "monotone",
+            };
+    }
+}
