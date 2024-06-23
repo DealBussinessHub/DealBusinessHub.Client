@@ -1,3 +1,245 @@
 @page "/business/seller/listings/edit/{Id:int}"
 
-<h1>Listings Edit</h1>
+@inject NavigationManager navigation
+
+<PageTitle> DealBusinessHub - Seller Listings Edit </PageTitle>
+
+<HeroSection Title="Edit Listing"
+             Description="Lorem ImpsumLorem ImpsumLorem ImpsumLorem ImpsumLorem ImpsumLorem ImpsumLorem ImpsumLorem Impsum" />
+
+<section class="container p-5 rounded rounded-4 bg-white" style="margin-top: -100px;">
+    <div class="w-50">
+        <h4 class="fw-bolder">Fill all gaps to create a business</h4>
+        <p class="m-0 p-0" style="font-size: small;">
+            Information entered here is displayed publicly to match you with
+            the right set of investors and buyers. Do not mention business name/information which can identify the
+            business.
+        </p>
+    </div>
+
+    <form class="row my-5 align-items-baseline">
+        <div class="form-group col-md-4 col-12">
+            <label for="" class="mb-2 fw-bolder"> You're Interested In</label>
+            <select class="form-control-sm  bg-body-tertiary border-0 shadow-none py-3 px-4 form-select">
+                <option selected value="">Select</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4 col-12">
+            <label for="" class="mb-2 fw-bolder"> Estabilished at</label>
+            <select class="form-control-sm  bg-body-tertiary border-0 shadow-none py-3 px-4 form-select">
+                <option selected value="">Select a year</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4 col-12">
+            <label for="" class="mb-2 fw-bolder"> Industry</label>
+            <select class="form-control-sm  bg-body-tertiary border-0 shadow-none py-3 px-4 form-select">
+                <option selected value="">Select the Industry</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4 col-12">
+            <label for="" class="mb-2 fw-bolder">Business Location</label>
+            <select class="form-control-sm  bg-body-tertiary border-0 shadow-none py-3 px-4 form-select">
+                <option selected value="">Select</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4 col-12">
+            <label for="" class="mb-2 fw-bolder"> Permanent Employee</label>
+            <input placeholder="Enter a number"
+                   class="form-control-sm col-12 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+        </div>
+        <div class="form-group col-md-4 col-12">
+            <label for="" class="mb-2 fw-bolder"> Entity Type</label>
+            <select class="form-control-sm  bg-body-tertiary border-0 shadow-none py-3 px-4 form-select">
+                <option selected value="">Select</option>
+            </select>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder"> Describe the business </label>
+            <textarea class="form-control form-control-plaintext col-12 bg-body-tertiary border-0 shadow-none py-3 px-4">
+                </textarea>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                About Your Top-Selling (products and services, who uses them, and
+                how)
+            </label>
+            <textarea class="form-control form-control-plaintext col-12 bg-body-tertiary border-0 shadow-none py-3 px-4">
+                </textarea>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Mention highlights of the business including number of clients,
+                revenue model, promoter experience, business relationships, awards, etc
+            </label>
+            <textarea class="form-control form-control-plaintext col-12 bg-body-tertiary border-0 shadow-none py-3 px-4">
+                </textarea>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Describe your facility such as built-up area, number of floors,
+                rental/lease details
+            </label>
+            <textarea class="form-control form-control-plaintext col-12 bg-body-tertiary border-0 shadow-none py-3 px-4">
+                </textarea>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Mention all debts/loans outstanding and the total number of
+                shareholders/owners of the business with percentage ownership.
+            </label>
+            <textarea class="form-control form-control-plaintext col-12 bg-body-tertiary border-0 shadow-none py-3 px-4">
+                </textarea>
+        </div>
+
+        <div class="form-group col-md-6 col-12">
+            <label for="" class="mb-2 fw-bolder">Average Monthly Sales</label>
+            <div class="d-flex gap-2">
+                <input placeholder="AOA" type="number"
+                       class="form-control-sm col-11 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+                <button class="btn btn-secondary  px-3 fa fa-money-bill-transfer"></button>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6 col-12">
+            <label for="" class="mb-2 fw-bolder">Latest Yearly Sales</label>
+            <input placeholder="AOA" type="number"
+                   class="form-control-sm col-12 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+            <div class="d-flex justify-content-between my-1">
+                <div class="form-check form-switch">
+                    <input class="form-check-input bg-danger" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Display as range</label>
+                </div>
+                <span>Shown to users as AOA 4 - 5</span>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6 col-12">
+            <label for="" class="mb-2 fw-bolder">The EBITDA </label>
+            <input placeholder="AOA" type="number"
+                   class="form-control-sm col-12 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+            <div class="d-flex justify-content-between my-1">
+                <div class="form-check form-switch">
+                    <input class="form-check-input bg-danger" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                           checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Display as range</label>
+                </div>
+                <span>Shown to users as 0 to 10 %</span>
+            </div>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                List all the tangible and intangible assets the buyer would get
+
+            </label>
+            <textarea class="form-control form-control-plaintext col-12 bg-body-tertiary border-0 shadow-none py-3 px-4">
+                </textarea>
+        </div>
+
+        <div class="form-group col-md-6 col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Value of physical assets owned by the business that would be part of
+                the transaction
+            </label>
+            <input placeholder="AOA" type="number"
+                   class="form-control-sm col-12 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+
+        </div>
+
+        <div class="form-group col-md-6 col-12">
+            <label for="" class="mb-2 fw-bolder">What is the tentative selling price for the business? </label>
+            <input placeholder="AOA" type="number"
+                   class="form-control-sm col-12 bg-body-tertiary border-0 shadow-none py-3 px-4" />
+
+        </div>
+
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Provide reason for sale
+            </label>
+            <textarea class="form-control form-control-plaintext col-12 bg-body-tertiary border-0 shadow-none py-3 px-4">
+                </textarea>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Business Photos 
+            </label>
+            <div class="p-4 px-5 d-flex justify-content-between align-content-center rounded rounded-3"
+                 style="border:1px  dashed;">
+                <i class="fa fa-cloud-upload-alt h1 text-secondary"></i>
+                <div class="d-flex flex-column text-center gap-2">
+                    <strong>Select a file or drag and drop here</strong>
+                    <span class="text-secondary" style="font-size: smaller;">
+                        JPG, PNG or PDF, file size no more than
+                        10MB
+                    </span>
+                </div>
+                <button class="btn btn-outline-danger">SELECT FILE</button>
+            </div>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Business Documents 
+            </label>
+            <div class="p-4 px-5 d-flex justify-content-between align-content-center rounded rounded-3"
+                 style="border:1px  dashed;">
+                <i class="fa fa-cloud-upload-alt h1 text-secondary"></i>
+                <div class="d-flex flex-column text-center gap-2">
+                    <strong>Select a file or drag and drop here</strong>
+                    <span class="text-secondary" style="font-size: smaller;">
+                        JPG, PNG or PDF, file size no more than
+                        10MB
+                    </span>
+                </div>
+                <button class="btn btn-outline-danger">SELECT FILE </button>
+            </div>
+        </div>
+
+        <div class="form-group  col-12">
+            <label for="" class="mb-2 fw-bolder">
+                Proof of Business
+            </label>
+            <div class="p-4 px-5 d-flex justify-content-between align-content-center rounded rounded-3"
+                 style="border:1px  dashed;">
+                <i class="fa fa-cloud-upload-alt h1 text-secondary"></i>
+                <div class="d-flex flex-column text-center gap-2">
+                    <strong>Select a file or drag and drop here</strong>
+                    <span class="text-secondary" style="font-size: smaller;">
+                        JPG, PNG or PDF, file size no more than
+                        10MB
+                    </span>
+                </div>
+                <button class="btn btn-outline-danger">SELECT FILE</button>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-end justify-content-end my-4">
+            <button @onclick="RedirectToAdd" type="button" class="btn btn-danger py-2 px-5">
+                Update Business
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+@code {
+
+    [Parameter] public int Id { get; set; }
+
+    void RedirectToAdd()
+    {
+        navigation.NavigateTo("/business/seller/listings");
+    }
+}

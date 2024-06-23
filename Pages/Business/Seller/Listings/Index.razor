@@ -1,4 +1,5 @@
 @page "/business/seller/listings"
+@inject NavigationManager navigation
 
 
 <PageTitle> DealBusinessHub - Seller Listings </PageTitle>
@@ -77,7 +78,7 @@
 
     <div class="d-flex align-items-center justify-content-between my-5">
         <h4 class="fw-bolder">Let's turn your ideas<br> into reality!"</h4>
-        <button type="button" class="btn btn-danger p-2 px-4" style="background-color: @ColorThemeEnum.RedPrimary;">
+        <button type="button" class="btn btn-danger p-2 px-4" @onclick="RedirectToAdd">
             + New listing
         </button>
     </div>
@@ -119,9 +120,9 @@
                             <td class="col-2">E</td>
                             <td class="col-4">
                                 <div class="d-flex">
-                                    <button class="btn btn-link">See</button>
-                                    <button class="btn btn-link">Edit</button>
-                                    <button class=" btn btn-link text-danger">Delete</button>
+                                    <NavLink href="/business/seller/listings/deatails/1" class="btn btn-link">See</NavLink>
+                                    <NavLink href="/business/seller/listings/edit/1" class="btn btn-link">Edit</NavLink>
+                                    <NavLink class=" btn btn-link text-danger">Delete</NavLink>
                                 </div>
                             </td>
                         </tr>
@@ -136,4 +137,9 @@
 
 @code {
     public List<string> listings = new();
+
+    void RedirectToAdd()
+    {
+        navigation.NavigateTo("/business/seller/listings/add");
+    }
 }
